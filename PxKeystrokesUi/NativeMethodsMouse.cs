@@ -7,6 +7,9 @@ using System.Runtime.InteropServices;
 
 namespace PxKeystrokesUi
 {
+    /// <summary>
+    /// マウスに関するアトリビュートを持つクラス
+    /// </summary>
     [ComVisibleAttribute(false),
     System.Security.SuppressUnmanagedCodeSecurity()]
     public class NativeMethodsMouse
@@ -55,11 +58,11 @@ namespace PxKeystrokesUi
 
             public POINT(int x, int y)
             {
-                this.X = x;
-                this.Y = y;
+                X = x;
+                Y = y;
             }
 
-            public POINT(System.Drawing.Point pt) : this(pt.X, pt.Y) { }
+            public POINT(System.Drawing.Point pt) : this(x: pt.X, y: pt.Y) { }
 
             public static implicit operator System.Drawing.Point(POINT p)
             {

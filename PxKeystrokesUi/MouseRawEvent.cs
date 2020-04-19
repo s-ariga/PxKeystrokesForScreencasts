@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PxKeystrokesUi
 {
@@ -54,14 +50,16 @@ namespace PxKeystrokesUi
 
         public MouseRawEventArgs(NativeMethodsMouse.MSLLHOOKSTRUCT msllhookstruct)
         {
-            this.Msllhookstruct = msllhookstruct;
+            Msllhookstruct = msllhookstruct;
         }
 
-        public Point Position
-        {
-            get { return new Point(Msllhookstruct.pt.X, Msllhookstruct.pt.Y); }
-        }
+        public Point Position => new Point(x: Msllhookstruct.pt.X, y: Msllhookstruct.pt.Y);
 
+
+        /// <summary>
+        /// マウスイベントの中身を解釈する
+        /// </summary>
+        /// <param name="wParam">マウスイベントNativeMethodsMouseで解釈される</param>
         public void ParseWparam(UIntPtr wParam)
         {
             switch((int) wParam)
@@ -137,7 +135,8 @@ namespace PxKeystrokesUi
                 Action = MouseAction.Wheel;
                     
                 unchecked {
-                    wheelDelta = BitConverter.ToInt16(BitConverter.GetBytes(Msllhookstruct.mouseData), 2);
+                    wheelDelta = BitConverter.ToInt16(value: BitConverter.GetBytes(Msllhookstruct.mouseData),
+                                                      startIndex: 2);
                 }
                 break;
             case NativeMethodsMouse.WM_MOUSEHWHEEL2:
@@ -145,11 +144,12 @@ namespace PxKeystrokesUi
                 Button = MouseButton.None;
                 Action = MouseAction.Wheel;
                 unchecked {
-                    wheelDelta = BitConverter.ToInt16(BitConverter.GetBytes(Msllhookstruct.mouseData), 2);
+                    wheelDelta = BitConverter.ToInt16(value: BitConverter.GetBytes(Msllhookstruct.mouseData),
+                                                      startIndex: 2);
                 }
                 break;
             default:
-                Log.e("ME", "Unknown Mouse Event: " + wParam.ToString());
+                Log.e("ME", msg: "Unknown Mouse Event: " + wParam.ToString());
                 break;
             }
         }
