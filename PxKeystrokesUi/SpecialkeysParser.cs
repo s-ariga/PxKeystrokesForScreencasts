@@ -11,7 +11,8 @@ namespace PxKeystrokesUi
     {
         public static string ToString(Keys k)
         {
-            switch(k){
+            switch (k)
+            {
                 case Keys.Shift:
                 case Keys.ShiftKey:
                 case Keys.LShiftKey:
@@ -60,10 +61,10 @@ namespace PxKeystrokesUi
                     return "↹";
                 case Keys.Space:
                     return "␣";
-                case Keys.PageUp: 
+                case Keys.PageUp:
                     return " ↖ ";
                 case Keys.PageDown:
-                     return " ↘ ";
+                    return " ↘ ";
                 case Keys.End:
                     return " ⇲ ";
                 case Keys.Home:
@@ -118,7 +119,7 @@ namespace PxKeystrokesUi
                 case Keys.BrowserHome:
                     return " [🌐⌂] ";
 
-          
+
                 case Keys.VolumeMute:
                     return " 🔇 ";
                 case Keys.VolumeDown:
@@ -146,10 +147,10 @@ namespace PxKeystrokesUi
                     return " ▶ ";
                 case Keys.Zoom:
                     return " [🔎±] ";
-                
+
 
             }
-            if(Keys.F1 <= k && k <= Keys.F24)
+            if (Keys.F1 <= k && k <= Keys.F24)
                 return " " + k.ToString() + " ";
 
             throw new NotImplementedException();

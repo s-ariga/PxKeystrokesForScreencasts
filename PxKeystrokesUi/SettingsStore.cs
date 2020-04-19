@@ -81,7 +81,7 @@ namespace PxKeystrokesUi
             }
             return L;
         }
-                
+
         private bool IsEnum(PropertyInfo p)
         {
             return p.PropertyType.BaseType.Name == "Enum";
@@ -409,7 +409,7 @@ namespace PxKeystrokesUi
                     BindingFlags.NonPublic | BindingFlags.Instance);
                 object loadedValue = loadFunctionForType.Invoke(this, new object[] { name, def });
                 f.SetValue(this, loadedValue);
-                Log.e("REFL", f.Name + " = " + loadedValue.ToString() + ", def = " + def.ToString());   
+                Log.e("REFL", f.Name + " = " + loadedValue.ToString() + ", def = " + def.ToString());
             }
 
             dirty = true;
@@ -444,10 +444,10 @@ namespace PxKeystrokesUi
             try
             {
                 return new Font(GetString(name + "-fontfamily", def.Name),
-                                 (float) LoadDouble(name + "-size", def.SizeInPoints),
-                                 (FontStyle) LoadInt32(name + "-style", (int) def.Style));
+                                (float)LoadDouble(name + "-size", def.SizeInPoints),
+                                (FontStyle)LoadInt32(name + "-style", (int)def.Style));
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 return def;
             }
@@ -470,7 +470,7 @@ namespace PxKeystrokesUi
                 return new Size(LoadInt32(name + "-width", def.Width),
                                  LoadInt32(name + "-height", def.Height));
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 return def;
             }
@@ -522,12 +522,12 @@ namespace PxKeystrokesUi
 
         private void SaveSingle(string name, float value)
         {
-            SaveDouble(name, (float) value);
+            SaveDouble(name, (float)value);
         }
 
         private float LoadSingle(string name, float def)
         {
-            return (float) LoadDouble(name, def);
+            return (float)LoadDouble(name, def);
         }
 
 
@@ -602,7 +602,7 @@ namespace PxKeystrokesUi
         private string GetString(string name, string def)
         {
             Log.e("SETTINGS", name + " " + (string)Application.UserAppDataRegistry.GetValue(name, def));
-            return (string) Application.UserAppDataRegistry.GetValue(name, def);
+            return (string)Application.UserAppDataRegistry.GetValue(name, def);
         }
 
         #endregion

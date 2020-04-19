@@ -17,7 +17,7 @@ namespace PxKeystrokesUi
     /// </summary>
     public class KeyboardHook : IDisposable, IKeyboardRawEventProvider
     {
- 
+
         #region Initializion
 
         /// <summary>
@@ -82,8 +82,8 @@ namespace PxKeystrokesUi
         /// <summary>
         /// Processes the key event captured by the hook.
         /// </summary>
-        private IntPtr HookCallback(int nCode, 
-                                    IntPtr wParam, 
+        private IntPtr HookCallback(int nCode,
+                                    IntPtr wParam,
                                     ref NativeMethodsKeyboard.KBDLLHOOKSTRUCT lParam)
         {
             if (nCode >= 0)
@@ -181,6 +181,7 @@ namespace PxKeystrokesUi
 
             }
             return;
+            /*
             e.keyState[(int)Keys.LShiftKey] = (byte)(e.LShift ? 129 : 1);
             e.keyState[(int)Keys.RShiftKey] = (byte)(e.RShift ? 129 : 1);
             e.keyState[(int)Keys.CapsLock] = (byte)(e.Caps ? 129 : 1);
@@ -194,6 +195,7 @@ namespace PxKeystrokesUi
             e.keyState[(int)Keys.RControlKey] = (byte)(e.RCtrl ? 129 : 1);
             e.keyState[(int)Keys.LMenu] = (byte)(e.LAlt ? 129 : 1);
             e.keyState[(int)Keys.RMenu] = (byte)(e.RAlt ? 129 : 1);
+            */
         }
 
         #endregion
@@ -204,7 +206,7 @@ namespace PxKeystrokesUi
         /// Fires if key is pressed or released.
         /// </summary>
         public event KeyboardRawEventHandler KeyEvent;
-        
+
         /// <summary>
         /// Raises the KeyEvent event.
         /// </summary>
