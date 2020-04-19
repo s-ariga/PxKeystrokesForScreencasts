@@ -16,7 +16,7 @@ namespace PxKeystrokesUi
 
         #region Initializion
 
-        int doubleClickTime;
+        readonly int doubleClickTime;
 
         /// <summary>
         /// Set up the mouse hook
@@ -122,15 +122,14 @@ namespace PxKeystrokesUi
         /// Fires if mouse is moved or clicked.
         /// </summary>
         public event MouseRawEventHandler MouseEvent;
-        
+
         /// <summary>
         /// Raises the MouseEvent event.
         /// </summary>
         /// <param name="e">An instance of MouseRawEventArgs</param>
         public void OnMouseEvent(MouseRawEventArgs e)
         {
-            if (MouseEvent != null)
-                MouseEvent(e);
+            MouseEvent?.Invoke(e);
         }
 
         #endregion

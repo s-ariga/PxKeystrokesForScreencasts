@@ -99,13 +99,6 @@ namespace PxKeystrokesUi
             byte[] lpwTransKey,
             int fuState);
 
-    /*            int WINAPI ToAscii(
-  _In_      UINT uVirtKey,
-  _In_      UINT uScanCode,
-  _In_opt_  const BYTE *lpKeyState,
-  _Out_     LPWORD lpChar,
-  _In_      UINT uFlags
-);*/
         [DllImport("user32", SetLastError = true, CharSet = CharSet.Unicode)]
         public static extern int ToUnicode(
             int uVirtKey,
@@ -114,16 +107,6 @@ namespace PxKeystrokesUi
             [MarshalAs(UnmanagedType.LPWStr)] StringBuilder pwszBuff,
             int cchBuff,
             uint wFlags);
-        /*
-        int WINAPI ToUnicode(
-  _In_      UINT wVirtKey,
-  _In_      UINT wScanCode,
-  _In_opt_  const BYTE *lpKeyState,
-  _Out_     LPWSTR pwszBuff,
-  _In_      int cchBuff,
-  _In_      UINT wFlags
-);*/
-
 
         /// <summary>
         /// The GetKeyboardState function copies the status of the 256 virtual keys to the 

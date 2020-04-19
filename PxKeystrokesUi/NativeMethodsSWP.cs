@@ -12,7 +12,6 @@ namespace PxKeystrokesUi
     /// </summary>
     class NativeMethodsSWP
     {
-
         /// <summary>
         /// Sets the Topmost property for the window Handle
         /// </summary>
@@ -21,14 +20,13 @@ namespace PxKeystrokesUi
             SetWindowPos(Handle, HWND_TOPMOST, 0, 0, 0, 0, TOPMOST_FLAGS);
         }
 
-
         public static readonly IntPtr HWND_TOPMOST = new IntPtr(-1);
         public static readonly IntPtr HWND_NOTOPMOST = new IntPtr(-2);
         public static readonly IntPtr HWND_TOP = new IntPtr(0);
         public static readonly IntPtr HWND_BOTTOM = new IntPtr(1);
-        public const UInt32 SWP_NOSIZE = 0x0001;
-        public const UInt32 SWP_NOMOVE = 0x0002;
-        public const UInt32 TOPMOST_FLAGS = SWP_NOMOVE | SWP_NOSIZE;
+        public static readonly uint SWP_NOSIZE = 0x0001;
+        public static readonly uint SWP_NOMOVE = 0x0002;
+        public static readonly uint TOPMOST_FLAGS = SWP_NOMOVE | SWP_NOSIZE;
 
         [DllImport("user32.dll")]
         [return: MarshalAs(UnmanagedType.Bool)]

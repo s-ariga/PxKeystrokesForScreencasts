@@ -87,10 +87,8 @@ namespace PxKeystrokesUi
         };
 
         public delegate IntPtr HookHandlerDelegate(int nCode,
-                                             UIntPtr wParam,
-                                             ref MSLLHOOKSTRUCT lParam);
-
-
+                                                   UIntPtr wParam,
+                                                   ref MSLLHOOKSTRUCT lParam);
 
     }
 }

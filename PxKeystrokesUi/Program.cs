@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 
@@ -10,7 +7,9 @@ namespace PxKeystrokesUi
     static class Program
     {
         /// <summary>
-        /// Der Haupteinstiegspunkt für die Anwendung.
+        /// プログラムのメイン
+        /// STA(Single Threaded Apartment)は、Windows Form を使うときに必要なAttributeらしい
+        /// 
         /// </summary>
         [STAThread]
         static void Main()

@@ -41,11 +41,6 @@
             this.ResumeLayout(false);
 
         }
-
         #endregion
-
-
-
-
     }
 }

@@ -2,10 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace PxKeystrokesUi
@@ -46,15 +43,11 @@ namespace PxKeystrokesUi
 
     public class SettingsChangedEventArgs
     {
-        private string name;
-        public string Name
-        {
-            get { return name; }
-        }
+        public string Name { get; }
 
         public SettingsChangedEventArgs(string name)
         {
-            this.name = name;
+            this.Name = name;
         }
     }
 
@@ -70,7 +63,7 @@ namespace PxKeystrokesUi
             Properties = typeof(SettingsStore).GetProperties();
         }
 
-        PropertyInfo[] Properties = { };
+        private readonly PropertyInfo[] Properties = { };
 
         private List<string> GetAllSettingNames()
         {

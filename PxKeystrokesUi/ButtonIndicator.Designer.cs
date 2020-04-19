@@ -172,7 +172,5 @@
         private System.Windows.Forms.PictureBox pb_wheel_down;
         private System.Windows.Forms.PictureBox pb_wheel_up;
 
-
-
     }
 }

@@ -1,11 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Web;
 using System.Windows.Forms;
 
@@ -24,16 +20,15 @@ namespace PxKeystrokesUi
 
         FadeStatuses FadeStatus { get; set; }
 
-        IKeystrokeEventProvider k;
+        private readonly IKeystrokeEventProvider k;
 
         Settings SettingsForm;
 
         List<TweenLabel> tweenLabels = new List<TweenLabel>(5);
         bool LastHistoryLineIsText = false;
-        bool LastHistoryLineRequiredNewLineAfterwards = false;
+        private bool LastHistoryLineRequiredNewLineAfterwards = false;
         int NumberOfDeletionsAllowed = 0;
-
-        SettingsStore settings;
+        private SettingsStore settings;
 
         #region init (Constructor)
 
@@ -144,8 +139,7 @@ namespace PxKeystrokesUi
             }
         }
 
-
-        void addWelcomeInfo()
+        private void addWelcomeInfo()
         {
             MessageBox.Show("PyKeystrokesForScreencasts:\r\n\r\nHold Ctrl + Alt + Shift to move and resize. \n\rUse the tray icon to access settings.");
         }
@@ -162,7 +156,7 @@ namespace PxKeystrokesUi
                 ActivateDisplayOnlyMode(false);
         }
 
-        bool SettingsModeActivated = false;
+        private bool SettingsModeActivated = false;
 
         void ActivateDisplayOnlyMode(bool force)
         {
@@ -187,7 +181,7 @@ namespace PxKeystrokesUi
             }
         }
 
-        void ActivateSettingsMode()
+        private void ActivateSettingsMode()
         {
             if (!SettingsModeActivated)
             {
@@ -247,7 +241,7 @@ namespace PxKeystrokesUi
             }
         }
 
-        void ShowSettingsDialog()
+        private void ShowSettingsDialog()
         {
             if (SettingsForm != null)
             {
@@ -262,7 +256,7 @@ namespace PxKeystrokesUi
         #region display and animate Label
 
 
-        void addToLine(string chars)
+        private void addToLine(string chars)
         {
             TweenLabel T = tweenLabels[tweenLabels.Count - 1];
             T.Text += chars;
@@ -287,7 +281,7 @@ namespace PxKeystrokesUi
             return true;
         }
 
-        void addNextLine(string chars)
+        private void addNextLine(string chars)
         {
             TweenLabel nTL = TweenLabel.getNewLabel(this, settings);
             nTL.Size = getLabelSize();
@@ -324,7 +318,7 @@ namespace PxKeystrokesUi
 
         }
 
-        void nTL_historyTimeout(TweenLabel l)
+        private void nTL_historyTimeout(TweenLabel l)
         {
             tweenLabels.Remove(l);
 
@@ -334,7 +328,7 @@ namespace PxKeystrokesUi
             }
         }
 
-        bool addingWouldFitInCurrentLine(string s)
+        private bool addingWouldFitInCurrentLine(string s)
         {
             if(tweenLabels.Count == 0)
                 return false;
@@ -342,7 +336,7 @@ namespace PxKeystrokesUi
             return tweenLabels[tweenLabels.Count - 1].AddingWouldFit(s);
         }
 
-        Point getLabelStartPosition()
+        private Point getLabelStartPosition()
         {
             if (settings.LabelTextDirection == TextDirection.Down)
             {
@@ -545,7 +539,7 @@ namespace PxKeystrokesUi
             }
         }
 
-        void FadeInHandler(object sender, EventArgs e)
+        private void FadeInHandler(object sender, EventArgs e)
         {
             if (FadeStatus == FadeStatuses.Visible || FadeStatus == FadeStatuses.FadingOut)
             {
@@ -579,7 +573,7 @@ namespace PxKeystrokesUi
             }
         }
 
-        void FadeOutHandler(object sender, EventArgs e)
+        private void FadeOutHandler(object sender, EventArgs e)
         {
             if (FadeStatus == FadeStatuses.Hidden || FadeStatus == FadeStatuses.FadingIn)
             {
@@ -599,8 +593,5 @@ namespace PxKeystrokesUi
             }
             this.Refresh();
         }
-
-
-
     }
 }
