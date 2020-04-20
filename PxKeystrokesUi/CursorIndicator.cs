@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Drawing;
 using System.Windows.Forms;
 
 namespace PxKeystrokesUi
@@ -48,15 +41,15 @@ namespace PxKeystrokesUi
         void m_MouseEvent(MouseRawEventArgs raw_e)
         {
             cursorPosition = raw_e.Position;
-            if(raw_e.Action == MouseAction.Move)
+            if (raw_e.Action == MouseAction.Move)
                 UpdatePosition();
         }
 
         void CursorIndicator_FormClosed(object sender, FormClosedEventArgs e)
         {
-            if ( m != null )
+            if (m != null)
                 m.MouseEvent -= m_MouseEvent;
-            if ( s != null )
+            if (s != null)
                 s.settingChanged -= settingChanged;
             m = null;
             s = null;
@@ -73,7 +66,7 @@ namespace PxKeystrokesUi
             UpdatePosition();
         }
 
-        
+
 
         void UpdateSize()
         {
@@ -104,7 +97,5 @@ namespace PxKeystrokesUi
                     break;
             }
         }
-
-
     }
 }

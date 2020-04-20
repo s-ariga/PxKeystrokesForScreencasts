@@ -9,7 +9,6 @@ namespace PxKeystrokesUi
         /// <summary>
         /// プログラムのメイン
         /// STA(Single Threaded Apartment)は、Windows Form を使うときに必要なAttributeらしい
-        /// 
         /// </summary>
         [STAThread]
         static void Main()

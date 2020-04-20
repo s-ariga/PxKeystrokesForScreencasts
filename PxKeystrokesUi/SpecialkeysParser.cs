@@ -5,6 +5,10 @@ namespace PxKeystrokesUi
 {
     class SpecialkeysParser
     {
+        /// <summary>
+        /// 特殊キーの入力を文字列に変換する
+        /// </summary>
+        /// <param name="k"> 押されたキーの番号</param>
         public static string ToString(Keys k)
         {
             switch (k)

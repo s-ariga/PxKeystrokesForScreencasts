@@ -22,9 +22,9 @@ namespace PxKeystrokesUi
             public int dwExtraInfo;
         }
 
-        public delegate IntPtr HookHandlerDelegate(int nCode, 
-                                                     IntPtr wParam, 
-                                                     ref KBDLLHOOKSTRUCT lParam);
+        public delegate IntPtr HookHandlerDelegate(int nCode,
+                                                   IntPtr wParam,
+                                                   ref KBDLLHOOKSTRUCT lParam);
 
 
         [DllImport("kernel32.dll", CharSet = CharSet.Auto, SetLastError = true)]

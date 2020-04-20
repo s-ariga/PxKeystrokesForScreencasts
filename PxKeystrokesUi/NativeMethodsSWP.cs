@@ -9,6 +9,7 @@ namespace PxKeystrokesUi
 {
     /// <summary>
     /// These Method can be used to pin the window on top of everything
+    /// キーストロークの表示用
     /// </summary>
     class NativeMethodsSWP
     {
@@ -16,7 +17,8 @@ namespace PxKeystrokesUi
         /// Sets the Topmost property for the window Handle
         /// </summary>
         /// <param name="Handle">The Forms myform.Handle</param>
-        public static void SetWindowTopMost(IntPtr Handle) {
+        public static void SetWindowTopMost(IntPtr Handle)
+        {
             SetWindowPos(Handle, HWND_TOPMOST, 0, 0, 0, 0, TOPMOST_FLAGS);
         }
 

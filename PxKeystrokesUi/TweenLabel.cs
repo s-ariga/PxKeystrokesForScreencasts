@@ -2,9 +2,6 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Imaging;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace PxKeystrokesUi
@@ -14,7 +11,7 @@ namespace PxKeystrokesUi
         #region Recycling
 
         static Stack<TweenLabel> unusedLabels = new Stack<TweenLabel>(15);
-        
+
         static int debug_nextId = 1;
         int debug_id;
 
@@ -193,7 +190,7 @@ namespace PxKeystrokesUi
                 movePercent = (float)moveDir.Y * movePercent / ((float)newMoveDir.Y + moveDir.Y);
                 moveDir = Point.Add(moveDir, new Size(newMoveDir));
             }
-            
+
         }
 
         void T_Move(object sender, EventArgs e)
@@ -213,8 +210,8 @@ namespace PxKeystrokesUi
             }
             this.Location = Point.Add(moveStartLocation, new Size((int)(moveDir.X * movePercent), (int)(moveDir.Y * movePercent)));
         }
-
-        float opacity = 1f;
+        /// <summary> キー表示の後ろの透明度</summary>
+        private float opacity = 1f;
 
         public float Opacity
         {
@@ -269,7 +266,7 @@ namespace PxKeystrokesUi
 
             //TextRenderer.DrawText(G, this.Text, this.Font, new Point(x, y),
             //    C, Color.Transparent, TextFormatFlags.NoPadding);
-            
+
             //G.DrawString(this.Text, this.Font, drawBrush, x, y, drawFormat);
             drawBrush.Dispose();
 
